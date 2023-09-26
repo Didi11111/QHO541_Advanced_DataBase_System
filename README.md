@@ -5,7 +5,6 @@
 This project is a Node.js web application designed around movie-related functionalities, developed using the Express.js framework. The movie database has been downloaded from www.kaggle.com. 
 
 ## Starting the project
-Certainly! Based on our conversation, here's a brief description of how to get started with Node.js and the associated libraries that were mentioned:
 
 ### 1. Setting up Node.js:
 
@@ -62,7 +61,7 @@ npm install nodemon
 }
 ```
 
-Now, when is ran `npm start`, `nodemon` will start the application and watch for changes, restarting the server when changes are detected.
+Now, when is run `npm start`, `nodemon` will start the application and watch for changes, restarting the server when changes are detected.
 
 ### 2. Installing Libraries:
 
@@ -130,7 +129,7 @@ mongoose.connect('mongodb://localhost:27017/your_database_name', {
 
 ### 5. Defining Models with Mongoose:
 
-Mongoose models provide an interface to the MongoDB collection. In our chat, we discussed models like `movies` and `comments`. For example:
+Mongoose models provide an interface to the MongoDB collection. For example:
 
 ```javascript
 const mongoose = require("mongoose");
@@ -218,7 +217,7 @@ app.use((err, req, res, next) => {
 ### Ejs Templates 
 
 1. **MovieHunter Page**:
-    - Appears to be a homepage or main dashboard for a website about movies.
+    - Homepage is a website about movies.
     - Lists top-rated movies, newest movies, and big budget movies.
     - Uses EJS (Embedded JavaScript) to dynamically generate movie listings based on a list of movies (`movies` array).
     - Each movie has an image and IMDb score displayed.
@@ -255,8 +254,6 @@ General Observations:
 - **Styling & JS**: Each template has its own styles and JavaScript associated, linked at the top inside the `<head>` tag.
   
 - **Includes**: There are various `include` statements (e.g., `<%- include('layouts/header'); -%>`) that are used to incorporate common elements, like headers and footers, into the pages.
-
-Certainly! Here's a more integrated view of the user registration, login, and password reset processes using both explanations and provided code samples:
 
 ---
 
@@ -469,6 +466,8 @@ This portion completes the CRUD operations:
 ---
 
 **Overall**, the provided code facilitates operations related to comments in a movie application. Users can add comments to movies, delete their comments, and view comments for specific movies. Both the movie and comment structures are defined using Mongoose schemas and stored in MongoDB. The operations are neatly encapsulated within asynchronous functions that handle potential errors gracefully.
+
+---
 
 **CONCLUSION**
 In conclusion, this project offers a comprehensive web platform focused on movies, combining the robustness of Express.js, MongoDB, and various other tools and libraries to create an engaging user experience.
