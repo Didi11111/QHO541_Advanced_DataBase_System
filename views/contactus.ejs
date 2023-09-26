@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Form</title>
+    <link rel="stylesheet" href="/css/new_style.css">
+    <script src="https://kit.fontawesome.com/b091689135.js" crossorigin="anonymous"></script>
+    <script type="module" src="/js/script_form.js"></script>
+    <%- include('layouts/header'); -%>
+</head>
+<body>
+  <%- include('layouts/nav_bar'); -%>
+  <div class="container">
+    <form action="/savecontact" method="POST">
+      <i class="fa-regular fa-paper-plane"></i>
+      <h3>Contact Us</h3>
+      <div class="input-group">
+    </div>
+    <% if (name && email) { %>
+      <h1 style="color: black;">Welcome, <%= name %>!</h1>
+      <p style="color: black;">Your email is: <%= email %></p>
+      <input type="hidden" name="name" value="<%= name %>">
+      <input type="hidden" name="email" value="<%= email %>">
+  <% } else { %>
+      <input type="text" name="name" placeholder="Enter your full name">
+      <input type="text" name="email" placeholder="Enter your email">
+  <% } %>
+  
+    
+    
+      <div class="input-group">
+        <label style="color: black;">Your Message</label>
+        <textarea rows="5" placeholder="Enter your message" id="message" name="message" onkeyup="validateMessage()">
+        </textarea>
+        <span id="message-error"></span>
+      </div>
+
+    <button onclick="return validateForm()">Submit</button>
+    <span id="submit-error"></span>
+   
+  </form>
+  </div>
+  <!-- SubNav Bar Starts here -->
+  <%- include('layouts/footer'); -%>
+   <script src="/js/script_form.js"></script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Login</title>
+  <link rel="stylesheet" href="/css/style_log.css">
+  <script type="module" src="/js/log.js"></script>
+</head>
+<body>
+
+  <div class="container">
+    <input type="checkbox" id="check">
+    <div class="login form">
+      <header>Login</header>
+      <form id="loginform" action="/user/login/" method="post">
+        <input type="text" placeholder="username" id="username" name="username">
+        <p style="color: red;"><%=invalidUserError%></p>
+        <input type="password" placeholder="Enter your password" id="password" name="password">
+        <p style="color: red;"><%= invalidPasswordError %></p>
+        <a href="/forgotPassword">Forgot password?</a>
+        <button type="submit" class="button" value="Login">Login</button>
+        <div>
+          <span id="submit-error"></span>
+        </div>
+      </form>
+      <div class="signup">
+        <span class="signup">Don't have an account?
+          <a href="/registration">Signup</a>
+         <label for="check"></label>
+        </span>
+      </div>
+    </div>
+  </div>
+  <script src="/js/log.js"></script>
+</body>
+</html>

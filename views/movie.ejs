@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<%- include('layouts/header'); -%>
+<title>Movie</title>
+<script src="/js/delete.js"></script>
+</head>
+<body>
+<!-- Nav Bar Starts here -->
+<%- include('layouts/nav_bar'); -%>
+<!-- SubNav Bar Starts here -->
+<%- include('layouts/sub_nav'); -%>
+<br><br><br><br>
+
+<div class="clearfix">
+ 
+    <% if (movie) { %>
+    <div class="box1">
+    
+        <img src= <%= movie.Images %> width="300" height="400">
+    </div>
+    <div class="box1">
+        <table > 
+            <tr>
+                <td><p>Title: <span> <%= movie.movie_title %></span></p></td>
+            </tr>
+            <tr>
+                <td>Year: <span> <%= movie.title_year %></span></td>
+            </tr>
+            <tr>
+                <td>Genre: <span> <%= movie.genres %></span></td>
+            </tr>
+            <tr>
+                <td>Country: <span> <%= movie.country %></span></td>
+            </tr>
+            <tr>
+                <td>Language: <span> <%= movie.language %></span></td>
+            </tr>
+            <tr>
+                <td>Director: <span><%= movie.director_name %></span></td>
+            </tr>
+            <tr>
+                <td>Actors: 
+                    <span> <%= movie.actor_1_name %></span>
+                    <span>,</span>
+                    <span> <%= movie.actor_2_name %></span> 
+                    <span>,</span>
+                    <span> <%= movie.actor_3_name %></span>
+                </td>
+            </tr>
+            <tr>
+                <td>Duration: <span> <%= movie.duration %> min</span></td>
+            </tr>
+            <tr>
+                <td>Budget: <span> <%= movie.budget %> $</span></td>
+            </tr>
+        </table>
+    </div>
+    <% }%>
+</div>
+<p>_________________________________________________________________________________________________________________________________________________</p>
+<br><br>
+<div class="comment">
+    <h3>Add Comment</h3>
+</div>
+
+<div class="container1">
+    <p>Movie ID: <%= movieId %></p>
+
+    <form action="/add/Comment/<%= movieId %>" method="post">
+        <!-- <input type="text" id="yourname" name="yourname" placeholder="Your name.."> -->
+        <input type="hidden" id="yourname" name="yourname" value="<%= username %>">
+
+        
+        <input type="text" id="title" name="title" placeholder="Title..">
+        
+        <label for="subject">Your Comment</label>
+
+        <textarea id="message" name="message" placeholder="Write something.." style="height:200px"></textarea>
+
+        <input type="hidden" id="movieId" name="movieId" value="<%= movieId %>">
+        
+        <input type="submit" value="Submit"> 
+    </form> 
+    
+
+</div>
+
+
+<!-- Comments Section -->
+<div id="comm">
+    <div class="head">
+      <h3>Comments</h3>
+    </div>
+    <!-- <h2>Comments</h2> -->
+    <!-- <button id="delete-all-comments" class="delete-button">Delete All Comments</button> -->
+    <ul>
+      <% if (comments && comments.length > 0) { %>
+        <% comments.forEach(comment => { %>
+          <li class="comment-column">
+            <button class="delete-button" onclick="deleteComment('<%= comment._id %>')">Delete</button>
+            <div class="comment-user">
+              <strong>User Name:</strong> <%= comment.yourname %>
+            </div>
+            <div class="comment-title">
+              <strong>Title:</strong> <%= comment.title %>
+            </div>
+            <div class="comment-message">
+              <strong>Comment:</strong> <%= comment.message %>
+            </div>
+          </li>
+        <% }); %>
+      <% } else { %>
+        <li>No comments available.</li>
+      <% } %>
+    </ul>
+  </div>
+
+<!-- Footer Starts here -->
+<%- include('layouts/footer'); -%>
+<!-- END PAGE SOURCE -->
+    
+</body>
+</html>

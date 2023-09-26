@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Registration</title>
+  <link rel="stylesheet" href="/css/style_log.css">
+  <script type="module" src="/js/reg.js"></script>
+</head>
+<body>
+  <div class="container">
+    <input type="checkbox" id="check">
+    <div class="registration form">
+      <header>Signup</header>
+      <form id="registerForm" action="/user/registerForm/" method="post">
+
+        <p class="error"><%= nameError ? nameError : '' %></p>
+        <input type="text" id="name" name="name" placeholder="Enter your name">
+
+        <p class="error"><%= emailError ? emailError : '' %></p>
+        <input type="email" id="email" name="email" placeholder="Enter your email">
+       
+        <p class="error"><%= usernameError ? usernameError : '' %></p>
+        <input type="text" id="username" name="username" placeholder="Enter your username">
+
+        <p class="error"><%= passwordError ? passwordError : '' %></p>
+        <input type="password" id="password" name="password" placeholder="Create a password">
+
+        <p class="error"><%= password2Error ? password2Error : '' %></p>
+        <input type="password" id="password2" name="password2" placeholder="Confirm your password">
+        <span id="password2Error"></span>
+
+        <p class="error"><%= registrationError ? registrationError : '' %></p>
+        
+        <select id="usertype" name="usertype">
+          <option value="user">User</option>
+          <option value="admin">Admin</option>
+        </select>
+        <span id="submit-error"></span>
+
+        <button type="submit" class="button" value="Signup">Signup</button>
+      </form>
+      <div class="signup">
+        <span class="signup">
+          <a href="/login">Login</a>
+          <label for="check"></label>
+        </span>
+      </div>
+    </div>
+  </div>
+  <!-- <script src="/js/reg.js"></script> -->
+</body>
+</html>
