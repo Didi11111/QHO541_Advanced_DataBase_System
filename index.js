@@ -21,12 +21,6 @@ app.use(session({
     cookie: { secure: false } // Set to false if not using HTTPS
 }));
 
-//ssession middleware
-// app.use((req, res, next) => {
-//     req.loggedIn = Boolean(req.session.userId);
-//     req.userType = req.session.userType;
-//     next();
-// });
 
 //ssession middleware
 app.use((req, res, next) => {
@@ -102,7 +96,7 @@ const savecontactController = require('./controllers/savecontact')
 const loginController = require('./controllers/login');
 const registrationController = require('./controllers/registration');
 const userRegisterController = require('./controllers/userRegister');
-const registrationValidationRules = require('./controllers/registrationValidation');
+//const registrationValidationRules = require('./controllers/registrationValidation'); never used
 const userLoginController = require('./controllers/userLogin');
 const logoutController = require('./controllers/logout');
 const commentController = require('./controllers/commentController');
@@ -110,16 +104,6 @@ const passwordController = require('./controllers/password');
 const forgotPasswordController = require('./controllers/forgotPasswordController');
 const resetPasswordFormController = require('./controllers/resetPasswordFormController');
 const updatePasswordController = require('./controllers/updatePasswordController');
-
-
-// const resetPasswordFormController = require('./controllers/resetPasswordFormController');
-
-// app.get('/reset-password/test', (req, res) => {
-//     console.log('Inside test route');
-//     res.send('This is a test');
-// });
-
-// app.get('/reset-password/:token', resetPasswordFormController);
 
 
 

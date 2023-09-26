@@ -27,12 +27,12 @@ module.exports = async (req, res) => {
 
         // Save the comment to the database
         await newComment.save();
-        console.log('Comment saved:', newComment);
+        // console.log('Comment saved:', newComment);
 
         // Redirect to the movie detail page
         res.redirect(`/movie/detail/${movieId}`);
     } catch (error) {
-        console.error('Error:', error);
+        // console.error('Error:', error);
         res.status(500).send('Error creating comment.');
     }
 };

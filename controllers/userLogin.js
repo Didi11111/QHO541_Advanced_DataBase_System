@@ -6,18 +6,18 @@ module.exports = (req, res) => {
 
     users.findOne({ username: username }).then(function (person) {
         if (person) {
-            console.log('Found user in DB:', person.username);
-            console.log('Hashed password in DB:', person.password);
-            console.log('Attempted password:', password);
+            // console.log('Found user in DB:', person.username);
+            // console.log('Hashed password in DB:', person.password);
+            // console.log('Attempted password:', password);
             
             bcrypt.compare(password, person.password, (error, same) => {
                 if (error) {
-                    console.error('Error during password comparison:', error);
+                    // console.error('Error during password comparison:', error);
                     res.status(500).send('Internal error during password comparison.');
                     return;
                 }
 
-                console.log('Password comparison result:', same);
+                // console.log('Password comparison result:', same);
 
                 if (same) {
                     req.session.userId = person._id;
@@ -32,14 +32,14 @@ module.exports = (req, res) => {
                 }
             });
         } else {
-            console.log(`No user found for username: ${username}`);
+            // console.log(`No user found for username: ${username}`);
             res.render('login', {
                 invalidUserError: 'Invalid User',
                 invalidPasswordError: null
             });
         }
     }).catch(error => {
-        console.error('Error in user login:', error);
+        // console.error('Error in user login:', error);
         res.status(500).send('Internal Server Error');
     });
 };

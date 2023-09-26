@@ -28,7 +28,7 @@ module.exports = async (req, res) => {
 
         try {
             // Create a new user in the database
-            console.log("Attempting to save user:", req.body);
+            // console.log("Attempting to save user:", req.body);
             await users.create({
                 name: req.body.name,
                 email: req.body.email,
@@ -39,7 +39,7 @@ module.exports = async (req, res) => {
             res.redirect('/login');
         
         } catch (error) {
-            console.error("Error during user registration:", error);
+            // console.error("Error during user registration:", error);
         
             if (error.code === 11000 && error.keyPattern && error.keyPattern.email) {
                 return res.render('registration', {...errorsObj, registrationError: 'Email already exists. Please choose a different email.' });
