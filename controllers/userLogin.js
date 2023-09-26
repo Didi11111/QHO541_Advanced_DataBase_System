@@ -12,7 +12,7 @@ module.exports = (req, res) => {
             
             bcrypt.compare(password, person.password, (error, same) => {
                 if (error) {
-                    // console.error('Error during password comparison:', error);
+                    console.error('Error during password comparison:', error);
                     res.status(500).send('Internal error during password comparison.');
                     return;
                 }
