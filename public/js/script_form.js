@@ -22,7 +22,7 @@ function validateMessage(){
 function validateForm(){
     if(!validateMessage()){
         submitError.style.display = 'block';
-        submitError.innerHTML = 'Please compleat all fields';
+        submitError.innerHTML = 'Please compleat the fields';
         setTimeout(function(){submitError.style.display = 'none';}, 3000);
         return false;
         }

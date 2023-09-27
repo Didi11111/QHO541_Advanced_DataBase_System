@@ -96,6 +96,7 @@ const savecontactController = require('./controllers/savecontact')
 const loginController = require('./controllers/login');
 const registrationController = require('./controllers/registration');
 const userRegisterController = require('./controllers/userRegister');
+const checkEmailController = require('./controllers/checkEmailController');
 //const registrationValidationRules = require('./controllers/registrationValidation'); never used
 const userLoginController = require('./controllers/userLogin');
 const logoutController = require('./controllers/logout');
@@ -119,6 +120,7 @@ app.get('/login', loginController);
 app.get('/registration', registrationController);
 // app.post('/user/registerForm/', registrationValidationRules, userRegisterController);
 app.post('/user/registerForm/', userRegisterController);
+app.get('/user/check-email', checkEmailController);
 app.post('/user/login/', userLoginController);
 app.post('/logout', logoutController);
 app.delete('/comment/:id', ensureLoggedIn, commentController.deleteComment);

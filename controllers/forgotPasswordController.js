@@ -5,7 +5,7 @@ const crypto = require('crypto');
 module.exports = (req, res) => {
     const email = req.body.email;
 
-    let resetTokenValue; // Define it here
+    let resetTokenValue; 
 
     // Find user by email
     users.findOne({ email: email })
@@ -14,7 +14,7 @@ module.exports = (req, res) => {
                 return res.render('forgotPassword', { emailSent: false, error: 'No user with this email address' });
             }
 
-            resetTokenValue = crypto.randomBytes(32).toString('hex'); // Assign value here
+            resetTokenValue = crypto.randomBytes(32).toString('hex'); 
 
             const newToken = new Token({
                 user: user._id, 
