@@ -1,6 +1,7 @@
-const mongoose = require("mongoose")
+const mongoose = require("mongoose");
+
 const tokenSchema = new mongoose.Schema({
-    user: { type: mongoose.Schema.Types.ObjectId, ref: 'user' },
+    user: { type: mongoose.Schema.Types.ObjectId, ref: 'User' }, // Corrected reference
     token: String,
     expires: Date,
     createdAt: { type: Date, default: Date.now }
@@ -8,5 +9,6 @@ const tokenSchema = new mongoose.Schema({
 
 tokenSchema.index({ "createdAt": 1 }, { expireAfterSeconds: 3600 });  // tokens expire after 1 hour
 
-const token = mongoose.model('token', tokenSchema, 'token')
-module.exports = token
+const Token = mongoose.model('Token', tokenSchema, 'Token'); // Consistent naming
+module.exports = Token; // Export as Token
+

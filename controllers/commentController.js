@@ -21,19 +21,19 @@ exports.deleteComment = async (req, res) => {
         //     console.log("comment is a Mongoose document");
         // }
 
-        // console.log("Checking authorization. Logged-in user:", req.user.username, "Comment author:", comment.yourname);
+        console.log("Checking authorization. Logged-in user:", req.user.username, "Comment author:", comment.yourname);
 
         if (!req.user || req.user.username !== comment.yourname) {
-            // console.log("User not authorized or not logged in");
+            console.log("User not authorized or not logged in");
             return res.status(403).send({ message: 'You are not authorized to delete this comment' });
         }
 
-        // console.log("User authorized. Deleting the comment");
+        console.log("User authorized. Deleting the comment");
         
         // deleting comment
         await Comment.deleteOne({ _id: comment._id });
 
-        // console.log("Comment deleted");
+        console.log("Comment deleted");
         res.status(200).send({ message: 'Comment deleted successfully' });
         
     } catch (error) {
