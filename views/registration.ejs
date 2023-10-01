@@ -15,29 +15,29 @@
       <header>Signup</header>
       <form id="registerForm" action="/user/registerForm/" method="post">
 
-        <p class="error"><%= nameError ? nameError : '' %></p>
+        <p class="error" style="color: red;"><%= nameError ? nameError : '' %></p>
         <input type="text" id="name" name="name" placeholder="Enter your name">
 
-        <p class="error"><%= emailError ? emailError : '' %></p>
+        <p class="error" style="color: red;"><%= emailError ? emailError : '' %></p>
         <input type="email" id="email" name="email" placeholder="Enter your email">
        
-        <p class="error"><%= usernameError ? usernameError : '' %></p>
+        <p class="error" style="color: red;"><%= usernameError ? usernameError : '' %></p>
         <input type="text" id="username" name="username" placeholder="Enter your username">
 
-        <p class="error"><%= passwordError ? passwordError : '' %></p>
+        <p class="error" style="color: red;"><%= passwordError ? passwordError : '' %></p>
         <input type="password" id="password" name="password" placeholder="Create a password">
 
-        <p class="error"><%= password2Error ? password2Error : '' %></p>
+        <p class="error" style="color: red;"><%= password2Error ? password2Error : '' %></p>
         <input type="password" id="password2" name="password2" placeholder="Confirm your password">
         <span id="password2Error"></span>
 
-        <p class="error"><%= registrationError ? registrationError : '' %></p>
+        <p class="error" style="color: red;"><%= registrationError ? registrationError : '' %> </p>
         
         <select id="usertype" name="usertype">
           <option value="user">User</option>
           <option value="admin">Admin</option>
         </select>
-        <span id="submit-error"></span>
+        <span id="submit-error" style="color: red;"></span>
 
         <button type="submit" class="button" value="Signup">Signup</button>
       </form>
